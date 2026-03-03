@@ -1,24 +1,26 @@
-pipeline{
+pipeline {
     agent any
-    stages{
-        stage('checkout code'){
-            steps{
+
+    stages {
+        stage('Checkout') {
+            steps {
                 checkout scm
             }
-        
         }
-        stage('Run python project'){
-            steps{
+
+        stage('Run Student Processor') {
+            steps {
                 bat 'python app.py'
             }
         }
     }
-    post{
-        success{
-            echo "build successfully"
+
+    post {
+        success {
+            echo 'Build Successful 🎉'
         }
-        failure{
-            echo "build failed"
+        failure {
+            echo 'Build Failed ❌'
         }
     }
 }

@@ -11,8 +11,3 @@ class Student:
             return "C"
         else:
             return "Fail"
-    def display_result(self):
-        grade=self.calculate_grade()
-        print(f"Student Name:{self.name}")
-        print(f"Marks:{self.marks}")
-        print(f"Grade:{grade}")

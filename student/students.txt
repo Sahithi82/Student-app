@@ -1,0 +1,3 @@
+Sahithi,90
+Jyothi,70
+Madhu,50

@@ -1,10 +1,22 @@
 from student import Student
-def main():
-    student1=Student("Sahithi",95)
-    student1.display_result()
-    student2=Student("Jyothi",80)
-    student2.display_result()
-    student3=Student("Madhu",50)
-    student3.display_result()
-if __name__=="__main__":
-    main()
+
+def process_students():
+    with open("students.txt", "r") as file:
+        lines = file.readlines()
+
+    report_lines = []
+
+    for line in lines:
+        name, marks = line.strip().split(",")
+        student = Student(name, marks)
+        grade = student.calculate_grade()
+        report_lines.append(f"{name} - {marks} - Grade: {grade}")
+
+    with open("report.txt", "w") as report:
+        for line in report_lines:
+            report.write(line + "\n")
+
+    print("Report generated successfully!")
+
+if __name__ == "__main__":
+    process_students()
